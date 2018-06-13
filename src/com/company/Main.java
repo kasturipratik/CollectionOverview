@@ -9,25 +9,28 @@ public class Main {
 	// write your code here
 
         Scanner scan = new Scanner(System.in);
-        String favorite ="";
-        String choice="";
+        String movie ="";
+        String book="";
+        String choice ="";
 
-        ArrayList<String> favoriteList = new ArrayList<>();
+        CollectionDisplay display = new CollectionDisplay();
 
         do{
-            System.out.println("enter your favorite book or movie");
-            favorite = scan.nextLine();
+            System.out.println("Enter your favorite movie: ");
+            movie= scan.nextLine();
+            System.out.println("Enter your favorite book: ");
+            book = scan.nextLine();
 
-            favoriteList.add(favorite);
+            Collection collection = new Collection(movie,book);
+            display.addCollection(collection);
 
             System.out.println("Do you want to continue y/n :");
             choice = scan.nextLine();
         }while(!choice.equalsIgnoreCase("n"));
 
-        System.out.println("Your Favorite Book or movie are: ");
-            for(String list: favoriteList){
-                System.out.println(list);
-            }
+        System.out.println("Your Favorite Book or movie are: \n"+ "Movie" +"\t\t\t"+ "Books");
+
+        System.out.println(display.displayFavorite());
     }
 
 }
